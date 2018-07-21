@@ -12,4 +12,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PROMPT='%n@%m %~ %# '
+# Prompt
+src=$(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+setopt prompt_subst
+
+if [ -f $src ]; then
+	. $src
+	PROMPT="%n@%m %~ \$(__git_ps1) %# "
+else
+	PROMPT='%n@%m %~ %# '
+fi
