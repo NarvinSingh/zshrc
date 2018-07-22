@@ -13,12 +13,13 @@ compinit
 # End of lines added by compinstall
 
 # Prompt
-src=$(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
 setopt prompt_subst
+nl=$'\n'
+src=$(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
 
 if [ -f $src ]; then
 	. $src
-	PROMPT="%n@%m %~ \$(__git_ps1) %# "
+	PROMPT="%n@%m %~ \$(__git_ps1)$nl%# "
 else
-	PROMPT='%n@%m %~ %# '
+	PROMPT="%n@%m %~$nl%# "
 fi
