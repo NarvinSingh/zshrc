@@ -22,23 +22,23 @@ src=$(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
 hasgitps1=0
 
 if [ -f $src ]; then
-    . $src
-    hasgitps1=1
+  . $src
+  hasgitps1=1
 fi
 
 precmd () {
-    RED=124
-    GREEN=028
-    BLUE=057
-    PURPLE=129
-    WHITE=242
-    mainPart='%F{$RED}%n%F{$WHITE}@%F{$GREEN}%m %F{$BLUE}%~%f'
+  RED=124
+  GREEN=028
+  BLUE=057
+  PURPLE=129
+  WHITE=242
+  mainPart='%F{$RED}%n%F{$WHITE}@%F{$GREEN}%m %F{$BLUE}%~%f'
 
-    if [ $hasgitps1 ]; then
-        gitPart='%F{$PURPLE}\$(__git_ps1 " [%s]")%f'
-    else
-        gitPart=''
-    fi
+  if [ $hasgitps1 ]; then
+    gitPart='%F{$PURPLE}\$(__git_ps1 " [%s]")%f'
+  else
+    gitPart=''
+  fi
 
-    print -P "${mainPart}${gitPart}"
+  print -P "${mainPart}${gitPart}"
 }
