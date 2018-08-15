@@ -14,7 +14,7 @@ compinit
 
 
 ################################################################################
-#                                    Prompt
+#                                    Prompt                                    #
 ################################################################################
 setopt prompt_subst
 
@@ -32,7 +32,7 @@ precmd () {
   BLUE=057
   PURPLE=129
   WHITE=242
-  mainPart='%F{$RED}%n%F{$WHITE}@%F{$GREEN}%m %F{$BLUE}%~%f'
+  mainPart='\n%F{$RED}%n%F{$WHITE}@%F{$GREEN}%m %F{$BLUE}%~%f'
 
   if [ $hasgitps1 ]; then
     gitPart='%F{$PURPLE}\$(__git_ps1 " [%s]")%f'
@@ -42,3 +42,5 @@ precmd () {
 
   print -P "${mainPart}${gitPart}"
 }
+
+PROMPT='%F{$WHITE}%#%f '
