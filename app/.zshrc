@@ -43,4 +43,4 @@ precmd () {
   print -P "${mainPart}${gitPart}"
 }
 
-PROMPT='%F{$WHITE}%#%f '
+PROMPT='%F{%(!.$RED.$WHITE)}%#%f '
